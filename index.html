@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Engineering Reference – Equation Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- MathJax for LaTeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+      <div class="logo">Engineering Reference</div>
+      <div class="global-search">
+        <input 
+          type="text" 
+          class="global-search-input" 
+          id="globalSearchInput"
+          placeholder="Search equations, variables, or topics..."
+        />
+        <div class="search-suggestions" id="searchSuggestions"></div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="#home" class="nav-link" data-page="home">Browse</a>
+      <a href="#about" class="nav-link" data-page="about">About</a>
+      <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div>
+        <div class="sidebar-section-title">Categories</div>
+        <div class="category-pills" id="categoryPills"></div>
+      </div>
+
+      <div>
+        <div class="sidebar-section-title">Equations (<span id="equationCount">0</span>)</div>
+        <ul class="equation-list" id="equationList"></ul>
+        <div class="pagination">
+          <button class="page-btn" id="prevPage">←</button>
+          <span class="page-info" id="pageInfo">Page 1</span>
+          <button class="page-btn" id="nextPage">→</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main" id="mainContent">
+      <div class="loading">
+        <div class="loading-spinner"></div>
+        <p>Loading equations...</p>
+      </div>
+    </main>
+
+    <!-- Variable Drawer -->
+    <aside class="variable-drawer" id="variableDrawer">
+      <div class="drawer-header">
+        <div class="drawer-title">Variable Details</div>
+        <button class="drawer-close" id="drawerClose">×</button>
+      </div>
+      <div id="drawerContent">
+        <div class="empty-state">
+          <div class="empty-state-icon">📊</div>
+          <p>Click on any variable to see details and related equations</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
