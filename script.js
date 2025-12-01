@@ -15,7 +15,11 @@
     };
 
     // Mock API configuration
+<<<<<<< HEAD
     const API_BASE = 'https://engineering-api-pzlu.onrender.com/';
+=======
+    const API_BASE = 'srv-d4fv3qqdbo4c739rlju0';
+>>>>>>> a58018fefa0f8d0062e02c6dd803388c796100f7
     const USE_MOCK_DATA = false; // Set to false when real API is ready
 
     // ========================================
@@ -280,29 +284,6 @@
           }
         }
       ];
-
-      // Generate variations
-      for (let i = 0; i < 100; i++) {
-        const template = equationTemplates[i % equationTemplates.length];
-        equations.push({
-          id: `eq_${i + 1}`,
-          name: template.name + (i >= equationTemplates.length ? ` (Variant ${Math.floor(i / equationTemplates.length) + 1})` : ''),
-          category: template.category,
-          subcategory: template.subcategory,
-          description: template.description,
-          latex: template.latex,
-          resultVar: template.resultVar,
-          excelFormula: template.excelFormula,
-          steps: template.steps,
-          example: template.example,
-          constants: template.constants,
-          variables: template.variables.map(v => ({
-            ...v,
-            id: `${template.name.replace(/[^a-zA-Z]/g, '')}_${v.symbol.replace(/[^a-zA-Z]/g, '')}_${i}`
-          }))
-        });
-      }
-
       return { equations, categories };
     }
 
